@@ -16,7 +16,7 @@ public class Arrays {
 
     private static void checkArray(double[] a) {
         if (a == null) {
-            throw new IllegalStateException("Array must note be empty!");
+            throw new IllegalStateException("Array must not be null!");
         }
     }
 
