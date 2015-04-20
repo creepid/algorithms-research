@@ -19,7 +19,7 @@ public class EuclidTest {
         int p = 10;
         int q = 5;
 
-        int result = Euclid.gcd(p, q);
+        long result = Euclid.gcd(p, q);
         assertEquals(5, result);
 
         p = 17;
