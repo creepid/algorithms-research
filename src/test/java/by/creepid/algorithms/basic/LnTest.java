@@ -4,7 +4,6 @@
  */
 package by.creepid.algorithms.basic;
 
-import by.creepid.algorithms.basic.Ln.Factorial;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,7 +15,7 @@ public class LnTest {
     
     @Test
     public void testLn() {
-        Ln.Factorial factorial = new Factorial(6);
+        Factorial factorial = new Factorial(6);
         double result = Ln.ln(factorial);
         assertEquals(6.579, result, 0.01);
         
