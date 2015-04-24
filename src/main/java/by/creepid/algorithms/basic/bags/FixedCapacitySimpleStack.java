@@ -10,7 +10,7 @@ package by.creepid.algorithms.basic.bags;
  *
  * @author rusakovich
  */
-public class FixedCapacitySimpleStack<Item> {
+public class FixedCapacitySimpleStack<Item> implements Stack<Item>{
 
     protected Item[] arr;
     protected int n;
