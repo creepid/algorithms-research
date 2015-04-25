@@ -8,6 +8,7 @@ package by.creepid.algorithms.basic.bags;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 
@@ -55,7 +56,14 @@ public class FixedCapacitySimpleStackTest {
      * Test of push method, of class FixedCapacitySimpleStack.
      */
     @Test
-    public void testPush() {
+    public void testIsFull() {
+        FixedCapacitySimpleStack<Integer> stack = new FixedCapacitySimpleStack<>(3);
+        
+        stack.push(13);
+        stack.push(17);
+        stack.push(23);
+        
+        assertTrue(stack.isFull());
     }
     
 }

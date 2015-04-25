@@ -29,9 +29,9 @@ public class LinkedListStack<Item> implements Stack<Item> {
     public Item pop() {
         Item item = first.item;
         first = first.next;
-        
+
         n--;
-        
+
         return item;
     }
 
@@ -43,6 +43,24 @@ public class LinkedListStack<Item> implements Stack<Item> {
     @Override
     public int size() {
         return n;
+    }
+
+    public Item max() {
+        if (this.isEmpty()) {
+            return null;
+        }
+
+        Comparable max = (Comparable) first.item;
+        for (Node<Item> curr = first.next; curr != null; curr = curr.next) {
+            Comparable currItem = (Comparable) curr.item;
+
+            if (currItem.compareTo(max) > 0) {
+                max = currItem;
+            }
+
+        }
+
+        return (Item) max;
     }
 
 }
