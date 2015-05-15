@@ -54,10 +54,60 @@ public class TreeSumTest {
         assertEquals(expResult, result);
 
         arr = DataHelper.getIntArray("8Kints.txt");
+        expResult = 32074;
 
         stopWatch.start("8000 numbers");
         result = TreeSum.countSimple(arr);
         stopWatch.stop();
+
+        assertEquals(expResult, result);
+
+        System.out.println(stopWatch.prettyPrint());
+    }
+
+    /**
+     * Test of countFast method, of class TreeSum.
+     */
+    @Test
+    public void testCountFast() {
+        System.out.println("****** countFast *******");
+        StopWatch stopWatch = new StopWatch("countFast");
+
+        int[] arr = DataHelper.getIntArray("1Kints.txt");
+        int expResult = 70;
+
+        stopWatch.start("1000 numbers");
+        int result = TreeSum.countFast(arr);
+        stopWatch.stop();
+
+        assertEquals(expResult, result);
+
+        arr = DataHelper.getIntArray("2Kints.txt");
+        expResult = 528;
+
+        stopWatch.start("2000 numbers");
+        result = TreeSum.countFast(arr);
+        stopWatch.stop();
+
+        assertEquals(expResult, result);
+
+        arr = DataHelper.getIntArray("4Kints.txt");
+        expResult = 4039;
+
+        stopWatch.start("4000 numbers");
+        result = TreeSum.countFast(arr);
+        stopWatch.stop();
+
+        assertEquals(expResult, result);
+
+        arr = DataHelper.getIntArray("8Kints.txt");
+        expResult = 32074;
+
+        stopWatch.start("8000 numbers");
+        result = TreeSum.countFast(arr);
+        stopWatch.stop();
+
+        assertEquals(expResult, result);
 
         System.out.println(stopWatch.prettyPrint());
     }

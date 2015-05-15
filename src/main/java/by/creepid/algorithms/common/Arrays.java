@@ -75,6 +75,11 @@ public class Arrays {
         return a;
     }
 
+    public static int binarySearchRank(int key, int[] a) {
+        double[] ad = Primitive.copyFromIntArray(a);
+        return binarySearchRank(key, ad);
+    }
+
     public static int binarySearchRank(double key, double[] a) {
         checkArray(a);
 
@@ -83,6 +88,10 @@ public class Arrays {
 
         while (lo <= hi) {
             int mid = lo + (hi - lo) / 2;
+
+            if (mid == a.length) {
+                break;
+            }
 
             if (key < a[mid]) {
                 hi = mid - 1;
