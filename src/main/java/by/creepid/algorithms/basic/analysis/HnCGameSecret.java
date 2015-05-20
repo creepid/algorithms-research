@@ -63,7 +63,6 @@ class HnCGameSecret {
         interval = new Interval(INTERVAL_START, n);
         secret = StdRandom.randInt(INTERVAL_START, n);
         attemptsLimit = getAttemptsLimit(n, strictMode);
-        System.out.println("SECRET: " + secret);
     }
 
     public CheckResult checkNumber(int number) {

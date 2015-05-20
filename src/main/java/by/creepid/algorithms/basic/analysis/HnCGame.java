@@ -99,7 +99,6 @@ public class HnCGame {
                 min = number + 1;
             }
 
-            System.out.println(number);
 
         } while (min <= max);
 
