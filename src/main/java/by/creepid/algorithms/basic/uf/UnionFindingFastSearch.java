@@ -7,11 +7,16 @@ package by.creepid.algorithms.basic.uf;
 /**
  *
  * @author mirash
+ *
+ * find() - 1 appeal to id array union() - appeal to id in interval [N+3; 2N+1]
+ *
+ * One component last: need at least (N-1) union() method execution and
+ * (N+3)(N-1) ~ N^2 id[] appeal
  */
 public class UnionFindingFastSearch implements UnionFinding {
 
-    private int[] id;
-    private int count;
+    protected int[] id;
+    protected int count;
 
     public UnionFindingFastSearch(int n) {
         count = n;
