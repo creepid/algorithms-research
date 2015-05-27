@@ -8,12 +8,12 @@ package by.creepid.algorithms.basic.analysis;
  *
  * @author mirash
  */
-class Interval {
+public class Interval {
 
     private final int from;
     private final int to;
 
-    Interval(int from, int to) {
+    public Interval(int from, int to) {
         this.from = from;
         this.to = to;
     }

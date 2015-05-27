@@ -53,7 +53,7 @@ public class UnionFindingWeighted extends UnionFindingFastUnion {
             id[qRoot] = pRoot;
             treeSize[pRoot] += treeSize[qRoot];
         }
-
+        
         count--;
     }
 }

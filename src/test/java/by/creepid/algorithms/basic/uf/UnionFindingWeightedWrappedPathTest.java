@@ -13,16 +13,16 @@ import static org.junit.Assert.*;
  *
  * @author mirash
  */
-public class UnionFindingWeightedTest {
+public class UnionFindingWeightedWrappedPathTest {
 
-    private UnionFindingWeighted uf;
+    private UnionFindingWeightedWrappedPath uf;
 
-    public UnionFindingWeightedTest() {
+    public UnionFindingWeightedWrappedPathTest() {
     }
 
     @Before
     public void setUp() {
-        uf = new UnionFindingWeighted(10);
+        uf = new UnionFindingWeightedWrappedPath(10);
     }
 
     /**
@@ -46,7 +46,7 @@ public class UnionFindingWeightedTest {
 
         uf.union(9, 7);
         assertEquals(1, uf.count());
-        
+
         int expected[] = new int[10];
         expected[0] = 6;
         expected[1] = 2;
@@ -55,14 +55,12 @@ public class UnionFindingWeightedTest {
         expected[4] = 6;
         expected[5] = 6;
         expected[6] = 6;
-        expected[7] = 2;
+        expected[7] = 6;
         expected[8] = 4;
         expected[9] = 4;
         assertArrayEquals(expected, uf.id);
 
-        System.out.println(Arrays.toString(uf.id));
-
-        uf = new UnionFindingWeighted(8);
+        uf = new UnionFindingWeightedWrappedPath(8);
 
         expResult = 1;
 
