@@ -1,19 +1,20 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package by.creepid.algorithms.sorting;
 
+import by.creepid.algorithms.basic.bags.LinkedListStack;
+import by.creepid.algorithms.basic.bags.Stack;
+
 /**
  *
- * @author mirash
- *
- * Suitable for big data procession
- * Performance - unknown
+ * @author rusakovich
  */
-public class ShellSorting extends InsertionSorting {
+public class ShellStepStorageSorting extends ShellSorting {
 
-    ShellSorting() {
+    private ShellStepStorageSorting() {
     }
 
     public static void sort(Comparable[] a) {
@@ -21,8 +22,12 @@ public class ShellSorting extends InsertionSorting {
 
         int h = 1;
 
+        Stack<Integer> steps = new LinkedListStack();
+        steps.push(h);
+
         while (h < n / 3) {
             h = 3 * h + 1;//1, 4, 13, 40, 121, 364, 1093, ...
+            steps.push(h);
         }
 
         while (h >= 1) {
@@ -34,7 +39,13 @@ public class ShellSorting extends InsertionSorting {
                 }
             }
 
-            h = h / 3;
+            try {
+                h = steps.pop();
+            } catch (Throwable thr) {
+                h = 0;
+            }
+
         }
     }
+
 }
