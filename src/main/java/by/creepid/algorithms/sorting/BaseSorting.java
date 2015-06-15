@@ -8,22 +8,22 @@ package by.creepid.algorithms.sorting;
  *
  * @author mirash
  */
-class BaseSorting {
+public class BaseSorting {
 
-    BaseSorting() {
+    protected BaseSorting() {
     }
 
-    static boolean less(Comparable v, Comparable w) {
+    protected static boolean less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0;
     }
 
-    static void exch(Comparable[] a, int i, int j) {
+    protected static void exch(Comparable[] a, int i, int j) {
         Comparable temp = a[i];
         a[i] = a[j];
         a[j] = temp;
     }
 
-    static void show(Comparable[] a) {
+    protected static void show(Comparable[] a) {
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i] + " ");
         }

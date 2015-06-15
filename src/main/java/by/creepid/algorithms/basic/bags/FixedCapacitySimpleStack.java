@@ -34,9 +34,9 @@ public class FixedCapacitySimpleStack<Item> implements Stack<Item>{
     public Item pop() {
         return arr[--n];
     }
-    
+
     public boolean isFull(){
         return (arr.length == n);
     }
-    
+
 }

@@ -8,7 +8,7 @@ package by.creepid.algorithms.sorting;
  *
  * @author mirash
  *
- * Uses ~(N^2/2) compare operations and N permutations
+ * Uses ~(N^2/2) compare operations and N array appeals
  */
 public class SelectionSorting extends BaseSorting {
 
