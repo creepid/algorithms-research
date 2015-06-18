@@ -1,29 +1,27 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package by.creepid.algorithms.sorting.merging;
 
-import by.creepid.algorithms.sorting.BaseSorting;
+import by.creepid.algorithms.sorting.InsertionSorting;
 
 /**
  *
- * @author rusakovich
+ * @author mirash
  *
- * Execution time: ~ Nlog(N) Memory consumption: ~N
+ * Improvements:
  *
- * T1: While sorting every n-length array lowdown merge sorting uses from
- * 1/2NlgN to NlgN comparations
- *
- * T2:Uses not more 6NlgN array appeals
+ * 1. Using insertion sorting for small subarrays 2. If subarrays already sorted
+ * merge operation may be passed (linear execution time) 3. Helper array (aux)
+ * copy deny
  */
-public class MergeSorting extends BaseSorting {
+public class MergeSortingAdvance extends MergeSorting {
 
-    //array-helper for merging
-    protected static Comparable[] aux;
+    //see first statement
+    private static final int CUTOFF_ARRAY_LENGTH = 15;
 
-    MergeSorting() {
+    MergeSortingAdvance() {
     }
 
     static void merge(Comparable[] a, int lo, int mid, int hi) {
@@ -47,14 +45,19 @@ public class MergeSorting extends BaseSorting {
 
             } else {
                 a[k] = aux[i++];
-
             }
         }
     }
 
     //Divide and rule!!!
-     static void sort(Comparable[] a, int lo, int hi) {
+    static void sort(Comparable[] a, int lo, int hi) {
         if (hi <= lo) {
+            return;
+        }
+
+        //Using insertion sorting for small subarrays
+        if (a.length <= CUTOFF_ARRAY_LENGTH) {
+            InsertionSorting.sort(a);
             return;
         }
 
@@ -63,6 +66,11 @@ public class MergeSorting extends BaseSorting {
         sort(a, lo, mid);//sorting of right part
         sort(a, mid + 1, hi);//sorting of left part
 
+        //If subarrays already sorted merge operation may be passed (linear execution time)
+        if (a[mid].compareTo(a[mid + 1]) <= 0) {
+            return;
+        }
+
         merge(a, lo, mid, hi);//results merging
     }
 
@@ -70,5 +78,4 @@ public class MergeSorting extends BaseSorting {
         aux = new Comparable[a.length];
         sort(a, 0, a.length - 1);
     }
-
 }
