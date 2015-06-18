@@ -5,6 +5,7 @@
  */
 package by.creepid.algorithms.sorting;
 
+import java.util.Arrays;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -31,6 +32,18 @@ public class InsertionSortingTest {
 
         Assert.assertArrayEquals(expected, a);
 
+    }
+
+    @Test
+    public void testSortInterval() {
+        System.out.println("****** sort interval*******");
+
+        String[] a = {"S", "O", "R", "T", "E", "X", "A", "M", "P", "L", "E"};
+        InsertionSorting.sort(a, 3, 6);
+
+        String[] expected = {"S", "O", "R", "A", "E", "T", "X", "M", "P", "L", "E"};
+
+        Assert.assertArrayEquals(expected, a);
     }
 
 }
