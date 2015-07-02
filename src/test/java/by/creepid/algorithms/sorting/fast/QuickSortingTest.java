@@ -30,6 +30,13 @@ public class QuickSortingTest {
         String[] expected = {"A", "C", "E", "E", "I", "K", "L", "M", "O", "P", "Q", "R", "S", "T", "U", "X"};
 
         Assert.assertArrayEquals(expected, a);
+
+        String[] a2 = {"S", "Q", "U", "S", "I", "C", "K", "S", "O", "R", "T", "T", "T", "T", "T", "E", "X", "A", "Z", "Z", "Z", "S", "M", "P", "L", "E"};
+        QuickSorting.sort(a2);
+
+        String[] expected2 = {"A", "C", "E", "E", "I", "K", "L", "M", "O", "P", "Q", "R", "S", "S", "S", "S", "T", "T", "T", "T", "T", "U", "X", "Z", "Z", "Z"};
+
+        Assert.assertArrayEquals(expected2, a2);
     }
 
 }
