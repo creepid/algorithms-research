@@ -50,7 +50,7 @@ public class BinaryHeapTest {
         assertEquals("P", actual);
 
         String[] expected = {null, "P", "M", "L", "A", "E", "E", null, null, null, null, null};
-        assertArrayEquals(expected, binaryHeap.pq);
+        assertArrayEquals(expected, binaryHeap.keys);
     }
 
     @Test

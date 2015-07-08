@@ -18,17 +18,17 @@ import java.util.Arrays;
  */
 public class BinaryHeap<Key extends Comparable<Key>> implements PriorityQueue<Key> {
 
-    protected final Key[] pq;
-    private int n = 0;
+    protected final Key[] keys;
+    protected int n = 0;
 
     public BinaryHeap(int maxN) {
-        this.pq = (Key[]) new Comparable[maxN + 1];
+        this.keys = (Key[]) new Comparable[maxN + 1];
     }
 
     public BinaryHeap(Key[] pq) {
-        this.pq = (Key[]) new Comparable[pq.length + 1];
+        this.keys = (Key[]) new Comparable[pq.length + 1];
         for (int i = 0; i < pq.length; i++) {
-            this.pq[i + 1] = pq[i];
+            this.keys[i + 1] = pq[i];
         }
         n = pq.length;
     }
@@ -40,8 +40,8 @@ public class BinaryHeap<Key extends Comparable<Key>> implements PriorityQueue<Ke
      * @param j - second element
      * @return result of compare
      */
-    private boolean less(int i, int j) {
-        return pq[i].compareTo(pq[j]) < 0;
+    protected boolean less(int i, int j) {
+        return keys[i].compareTo(keys[j]) < 0;
     }
 
     /**
@@ -50,10 +50,10 @@ public class BinaryHeap<Key extends Comparable<Key>> implements PriorityQueue<Ke
      * @param i - element to shift
      * @param j - exchanging element
      */
-    private void exch(int i, int j) {
-        Key temp = pq[i];
-        pq[i] = pq[j];
-        pq[j] = temp;
+    protected void exch(int i, int j) {
+        Key temp = keys[i];
+        keys[i] = keys[j];
+        keys[j] = temp;
     }
 
     /**
@@ -61,7 +61,7 @@ public class BinaryHeap<Key extends Comparable<Key>> implements PriorityQueue<Ke
      *
      * @param k - element to swim
      */
-    private void swim(int k) {
+    protected void swim(int k) {
         while (k > 1 && less(k / 2, k)) {
             exch(k / 2, k);
             k = k / 2;
@@ -73,7 +73,7 @@ public class BinaryHeap<Key extends Comparable<Key>> implements PriorityQueue<Ke
      *
      * @param k - element to sink
      */
-    private void sink(int k) {
+    protected void sink(int k) {
         while (2 * k <= n) {
             int j = 2 * k;
             if ((j + 1) < n && less(j, j + 1)) {
@@ -89,22 +89,22 @@ public class BinaryHeap<Key extends Comparable<Key>> implements PriorityQueue<Ke
 
     @Override
     public void insert(Key key) {
-        pq[++n] = key;
+        keys[++n] = key;
         swim(n);
     }
 
     @Override
     public Key max() {
-        return pq[1];
+        return keys[1];
     }
 
     @Override
     public Key deleteMax() {
-        Key max = pq[1];
+        Key max = keys[1];
         //last exchanging with root
         exch(1, n--);
         //free memory
-        pq[n + 1] = null;
+        keys[n + 1] = null;
         sink(1);
         return max;
     }
@@ -135,6 +135,6 @@ public class BinaryHeap<Key extends Comparable<Key>> implements PriorityQueue<Ke
             sink(1);
         }
         
-        return Arrays.copyOfRange(pq, 1, pq.length);
+        return Arrays.copyOfRange(keys, 1, keys.length);
     }
 }
