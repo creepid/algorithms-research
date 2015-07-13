@@ -5,6 +5,11 @@
  */
 package by.creepid.algorithms.sorting.priority;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+import static org.junit.Assert.assertArrayEquals;
 import org.junit.Test;
 
 /**
@@ -19,27 +24,39 @@ public class IndexedPriorityQueueTest {
     @Test
     public void test() {
         System.out.println("***** test *****");
+
         String[] m1 = {"A", "B", "C", "F", "G", "I", "I", "Z"};
         String[] m2 = {"B", "D", "H", "P", "Q", "Q"};
         String[] m3 = {"A", "B", "E", "F", "J", "N"};
 
-        String[][] streams = new String[3][];
-        streams[0] = m1;
-        streams[1] = m2;
-        streams[2] = m3;
+        List<String> m1al = new ArrayList<String>(Arrays.asList(m1));
+        List<String> m2al = new ArrayList<String>(Arrays.asList(m2));
+        List<String> m3al = new ArrayList<String>(Arrays.asList(m3));
 
-        IndexedPriorityQueue<String> pq = new IndexedPriorityQueue<>(m1.length + m2.length + m3.length);
+        Iterator<String>[] iterators = new Iterator[3];
+        iterators[0] = m1al.iterator();
+        iterators[1] = m2al.iterator();
+        iterators[2] = m3al.iterator();
 
-        for (int i = 0; i < streams.length; i++) {
-            String[] strings = streams[i];
-            for (int j = 0; j < strings.length; j++) {
-                pq.insert(i, strings[j]);
+        IndexedPriorityQueue<String> pq = new IndexedPriorityQueue<>(iterators.length);
+
+        for (int i = 0; i < iterators.length; i++) {
+            pq.insert(i, iterators[i].next());
+        }
+
+        List<String> actualList = new ArrayList<>();
+        while (!pq.isEmpty()) {
+            actualList.add(pq.min());
+            int i = pq.deleteMin();
+            if (iterators[i].hasNext()) {
+                pq.insert(i, iterators[i].next());
             }
         }
 
-        while (!pq.isEmpty()) {
-            System.out.println(pq.deleteMin());
-        }
+        String[] expected = {"A", "A", "B", "B", "B", "C", "D", "E", "F", "F", "G", "H", "I", "I", "J", "N", "P", "Q", "Q", "Z"};
+        String[] actual = actualList.toArray(new String[actualList.size()]);
+
+        assertArrayEquals(expected, actual);
 
     }
 
