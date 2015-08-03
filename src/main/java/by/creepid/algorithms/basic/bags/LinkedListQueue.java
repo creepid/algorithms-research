@@ -5,11 +5,13 @@
  */
 package by.creepid.algorithms.basic.bags;
 
+import java.util.Iterator;
+
 /**
  *
  * @author rusakovich
  */
-public class LinkedListQueue<Item> implements Queue<Item> {
+public class LinkedListQueue<Item> implements Queue<Item>, Iterable<Item> {
 
     private Node<Item> first;
     private Node<Item> last;
@@ -55,6 +57,33 @@ public class LinkedListQueue<Item> implements Queue<Item> {
         n--;
 
         return item;
+    }
+
+    @Override
+    public Iterator<Item> iterator() {
+        return new LinkedListQueueIterator<Item>();
+    }
+
+    private class LinkedListQueueIterator<Item> implements Iterator<Item> {
+
+        private Node current = first;
+
+        @Override
+        public boolean hasNext() {
+            return (current != null);
+        }
+
+        @Override
+        public Item next() {
+            Node<Item> ret = current;
+            current = ret.next;
+            return ret.item;
+        }
+
+        @Override
+        public void remove() {
+        }
+
     }
 
 }

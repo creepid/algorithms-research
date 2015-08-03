@@ -5,6 +5,7 @@
  */
 package by.creepid.algorithms.basic.bags;
 
+import java.util.Iterator;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -14,7 +15,7 @@ import static org.junit.Assert.*;
  */
 public class LinkedListQueueTest {
 
-    private Queue<String> queue = new LinkedListQueue<>();
+    private LinkedListQueue<String> queue = new LinkedListQueue<>();
 
     public LinkedListQueueTest() {
         queue.enqueue("1111");
@@ -53,6 +54,17 @@ public class LinkedListQueueTest {
     public void testDequeue() {
         String first = queue.dequeue();
         assertEquals("1111", first);
+    }
+
+    /**
+     * Test of iterator method, of class LinkedListQueue.
+     */
+    @Test
+    public void testIterator() {
+        Iterator<String> iterator = queue.iterator();
+        while (iterator.hasNext()) {
+            assertNotNull(iterator.next());
+        }
     }
 
 }
