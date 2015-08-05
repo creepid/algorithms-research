@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package by.creepid.algorithms.basic.searching.symboltable;
+package by.creepid.algorithms.searching.symboltable;
 
 import by.creepid.algorithms.basic.bags.LinkedListQueue;
 
@@ -13,9 +13,9 @@ import by.creepid.algorithms.basic.bags.LinkedListQueue;
  */
 public class BinarySearchSymbolTable<Key extends Comparable<Key>, Value> extends BaseOrderedSymbolTable<Key, Value> {
 
-    private Key[] keys;
-    private Value[] vals;
-    private int n;
+    protected Key[] keys;
+    protected Value[] vals;
+    protected int n;
 
     public BinarySearchSymbolTable(int capacity) {
         this.keys = (Key[]) new Comparable[capacity];
@@ -85,8 +85,38 @@ public class BinarySearchSymbolTable<Key extends Comparable<Key>, Value> extends
     }
 
     @Override
+    public void delete(Key key) {
+        int i = rank(key);
+        if (i < n) {
+
+            for (int j = i; j <= n; j++) {
+                keys[j] = keys[j + 1];
+                vals[j] = vals[j + 1];
+            }
+        }
+    }
+
+    @Override
     public Key floor(Key key) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int lo = 0, hi = n - 1;
+
+        while (lo <= hi) {
+            int mid = lo + (hi - lo) / 2;
+            int cmp = key.compareTo(keys[mid]);
+            if (cmp < 0) {
+                hi = mid - 1;
+            } else if (cmp > 0) {
+                lo = mid + 1;
+            } else {
+                return keys[mid];
+            }
+        }
+
+        if (hi == -1) {
+            return null;
+        }
+
+        return keys[hi];
     }
 
     @Override
@@ -116,7 +146,7 @@ public class BinarySearchSymbolTable<Key extends Comparable<Key>, Value> extends
 
     @Override
     public Key select(int k) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return keys[k];
     }
 
     @Override

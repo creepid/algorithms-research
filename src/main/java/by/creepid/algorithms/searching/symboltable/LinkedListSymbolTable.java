@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package by.creepid.algorithms.basic.searching.symboltable;
+package by.creepid.algorithms.searching.symboltable;
 
 import java.util.Iterator;
 
@@ -13,10 +13,10 @@ import java.util.Iterator;
  */
 public class LinkedListSymbolTable<Key, Value> extends BaseSymbolTable<Key, Value> {
 
-    private Node first;
-    private int size = 0;
+    protected Node first;
+    protected int size = 0;
 
-    private class Node {
+    protected class Node {
 
         Key key;
         Value value;

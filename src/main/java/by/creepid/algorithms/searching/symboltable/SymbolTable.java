@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package by.creepid.algorithms.basic.searching.symboltable;
+package by.creepid.algorithms.searching.symboltable;
 
 /**
  *

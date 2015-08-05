@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package by.creepid.algorithms.basic.searching.symboltable;
+package by.creepid.algorithms.searching.symboltable;
 
+import by.creepid.algorithms.searching.symboltable.LinkedListSymbolTable;
 import java.util.Iterator;
 import org.junit.After;
 import org.junit.Test;
