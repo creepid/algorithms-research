@@ -18,12 +18,12 @@ public class BinaryTreeBase<Key extends Comparable<Key>, Value> {
 
     protected class Node {
 
-        private Key key;
-        private Value value;
+        Key key;
+        Value value;
 
-        private Node left, right;
+        Node left, right;
 
-        private int n;
+        int n;
 
         public Node(Key key, Value value, int n) {
             this.key = key;
@@ -33,7 +33,7 @@ public class BinaryTreeBase<Key extends Comparable<Key>, Value> {
 
     }
 
-    private int size(Node x) {
+    int size(Node x) {
         if (x == null) {
             return 0;
         } else {
