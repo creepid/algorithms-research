@@ -26,14 +26,14 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> extends BinaryTree
 
     }
 
-    private boolean isRed(Node node) {
+    protected boolean isRed(Node node) {
         if (node == null) {
             return false;
         }
         return (((RBNode) node).color == RED);
     }
 
-    private Node rotateLeft(Node hNode) {
+    protected Node rotateLeft(Node hNode) {
         Node xNode = hNode.right;
         hNode.right = xNode.left;
         xNode.left = hNode;
@@ -44,7 +44,7 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> extends BinaryTree
         return xNode;
     }
 
-    private Node rotateRight(Node hNode) {
+    protected Node rotateRight(Node hNode) {
         Node xNode = hNode.left;
         hNode.left = xNode.right;
         xNode.right = hNode;
@@ -61,13 +61,13 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> extends BinaryTree
      *
      * @param hNode - target node
      */
-    private void flipColors(Node hNode) {
+    protected void flipColors(Node hNode) {
         ((RBNode) hNode).color = RED;
         ((RBNode) hNode.left).color = BLACK;
         ((RBNode) hNode.right).color = BLACK;
     }
 
-    private Node put(Node hNode, Key key, Value val) {
+    protected Node put(Node hNode, Key key, Value val) {
         if (hNode == null) {
             return new RBNode(key, val, 1, RED);
         }
