@@ -11,14 +11,12 @@ import java.util.Iterator;
  *
  * @author rusakovich
  * @param <Item>
- * 
- * Adventages: 
- * 1. Every operation has execution time, don't depend on collection size
- * 2. Memory consumption ~ collection size
- * 
- * Lacks:
- * 1. Some pop and push operation may require array capacity change
- * 2. Execution of array capacity changing ~ collection size 
+ *
+ * Adventages: 1. Every operation has execution time, don't depend on collection
+ * size 2. Memory consumption ~ collection size
+ *
+ * Lacks: 1. Some pop and push operation may require array capacity change 2.
+ * Execution of array capacity changing ~ collection size
  */
 public class ResizedStack<Item> extends FixedCapacitySimpleStack<Item> implements Iterable<Item> {
 
@@ -32,8 +30,8 @@ public class ResizedStack<Item> extends FixedCapacitySimpleStack<Item> implement
         Item[] temp = (Item[]) new Object[newCapacity];
         for (int i = 0; i < n; i++) {
             temp[i] = this.arr[i];
-            this.arr = temp;
         }
+        this.arr = temp;
     }
 
     @Override
@@ -81,7 +79,5 @@ public class ResizedStack<Item> extends FixedCapacitySimpleStack<Item> implement
         @Override
         public void remove() {
         }
-
     }
-
 }
