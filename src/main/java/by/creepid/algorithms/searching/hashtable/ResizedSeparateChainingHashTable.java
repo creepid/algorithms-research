@@ -58,7 +58,8 @@ public class ResizedSeparateChainingHashTable<Key, Value> extends SeparateChaini
 
     void resize(int newCapacity) {
         LinkedListSymbolTable<Key, Value>[] oldChains = (LinkedListSymbolTable<Key, Value>[]) this.chains;
-
+        int oldM = this.m;
+        
         LinkedListSymbolTable<Key, Value>[] newChains = (LinkedListSymbolTable<Key, Value>[]) new LinkedListSymbolTable[newCapacity];
         for (int i = 0; i < newCapacity; i++) {
             newChains[i] = new LinkedListSymbolTable();
@@ -67,7 +68,7 @@ public class ResizedSeparateChainingHashTable<Key, Value> extends SeparateChaini
         this.chains = newChains;
         this.m = newCapacity;
 
-        for (int i = 0; i < m; i++) {
+        for (int i = 0; i < oldM; i++) {
             LinkedListSymbolTable<Key, Value> currST = oldChains[i];
             Iterator<Key> iterator = currST.keys().iterator();
             while (iterator.hasNext()) {
