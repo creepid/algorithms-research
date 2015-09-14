@@ -5,33 +5,23 @@
 package by.creepid.algorithms.searching.hashtable;
 
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.Before;
-import org.junit.BeforeClass;
 
 /**
  *
  * @author mirash
  */
-public class SeparateChainingHashTableTest {
-
-    public SeparateChainingHashTableTest() {
+public class ResizedSeparateChainingHashTableTest {
+    
+    public ResizedSeparateChainingHashTableTest() {
     }
-    private SeparateChainingHashTable<String, Integer> instance;
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
+    private ResizedSeparateChainingHashTable<String, Integer> instance;
 
     @Before
     public void before() {
-        instance = new SeparateChainingHashTable<String, Integer>(5);
+        instance = new ResizedSeparateChainingHashTable<String, Integer>(4);
 
         instance.put("S", 0);
         instance.put("E", 1);
@@ -87,27 +77,5 @@ public class SeparateChainingHashTableTest {
 
         Integer result = instance.get("X");
         assertNull(result);
-    }
-
-    /**
-     * Test of calc method, of class SeparateChainingHashTable.
-     */
-    @Test
-    public void testCalc() {
-        System.out.println("**** calc ****");
-        double expResult = 3.0;
-        double result = instance.calcX2();
-        assertEquals(expResult, result, 0.001);
-    }
-
-    /**
-     * Test of isRandom method, of class SeparateChainingHashTable.
-     */
-    @Test
-    public void testIsRandom() {
-        System.out.println("**** isRandom *****");
-        boolean expResult = true;
-        boolean result = instance.isRandom();
-        assertEquals(expResult, result);
     }
 }
