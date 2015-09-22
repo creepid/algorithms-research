@@ -10,8 +10,8 @@ package by.creepid.algorithms.common;
  * @author rusakovich
  */
 public class Matrix {
-    
-    private Matrix(){
+
+    private Matrix() {
     }
 
     private static void checkMatrix(double[][] a) {
@@ -53,6 +53,25 @@ public class Matrix {
         }
 
         return c;
+    }
+
+    public static double[] matrixVectorMuliplex(double[][] a, double[] x) {
+        int n = x.length;
+
+        double[] b = new double[n];
+        double sum;
+
+        for (int i = 0; i < n; i++) {
+            sum = 0.0;
+
+            for (int j = 0; j < n; j++) {
+                sum += a[i][j] * x[j];
+            }
+
+            b[i] = sum;
+        }
+
+        return b;
     }
 
 }

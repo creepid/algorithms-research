@@ -4,6 +4,8 @@
  */
 package by.creepid.algorithms.searching.hashtable;
 
+import by.creepid.algorithms.basic.bags.LinkedListQueue;
+
 /**
  *
  * @author mirash
@@ -15,7 +17,11 @@ public class LinearProbingHashTable<Key, Value> extends AbstractHashTable<Key, V
     private Value[] vals;
 
     public LinearProbingHashTable() {
-        this.m = START_SIZE;
+        this(START_SIZE);
+    }
+
+    public LinearProbingHashTable(int size) {
+        this.m = size;
         this.keys = (Key[]) new Object[m];
         this.vals = (Value[]) new Object[m];
     }
@@ -63,7 +69,7 @@ public class LinearProbingHashTable<Key, Value> extends AbstractHashTable<Key, V
 
     }
 
-    private boolean contains(Key key) {
+    public boolean contains(Key key) {
         int i;
         for (i = hash(key); keys[i] != null; i = (i + 1) % m) {
             if (keys[i].equals(key)) {
@@ -107,5 +113,19 @@ public class LinearProbingHashTable<Key, Value> extends AbstractHashTable<Key, V
         if (n > 0 && n == m / 8) {
             resize(m / 2);
         }
+    }
+
+    public int size() {
+        return this.n;
+    }
+
+    public Iterable<Key> keys() {
+        LinkedListQueue<Key> queue = new LinkedListQueue<Key>();
+        for (int i = 0; i < m; i++) {
+            if (keys[i] != null) {
+                queue.enqueue(keys[i]);
+            }
+        }
+        return queue;
     }
 }

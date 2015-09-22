@@ -65,7 +65,7 @@ public class SeparateChainingHashTable<Key, Value> extends AbstractHashTable<Key
 
     @Override
     public double calcX2() {
-        double nm = (double)n / (double)m;
+        double nm = (double) n / (double) m;
         double summ = 0;
 
         LinkedListSymbolTable<Key, Value>[] st = (LinkedListSymbolTable<Key, Value>[]) chains;
@@ -77,7 +77,7 @@ public class SeparateChainingHashTable<Key, Value> extends AbstractHashTable<Key
             summ += (fi - nm) * (fi - nm);
         }
 
-        summ *= ((double)m / (double)n);
+        summ *= ((double) m / (double) n);
         return summ;
     }
 
