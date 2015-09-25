@@ -6,6 +6,7 @@
 package by.creepid.algorithms.searching.application;
 
 import by.creepid.algorithms.searching.hashtable.LinearProbingHashTable;
+import java.util.Iterator;
 
 /**
  *
@@ -13,7 +14,7 @@ import by.creepid.algorithms.searching.hashtable.LinearProbingHashTable;
  */
 public class SparseVector {
 
-    private final LinearProbingHashTable<Integer, Double> symbolTable;
+    final LinearProbingHashTable<Integer, Double> symbolTable;
 
     public SparseVector() {
         this.symbolTable = new LinearProbingHashTable<Integer, Double>();
@@ -43,6 +44,25 @@ public class SparseVector {
             }
         }
         return sum;
+    }
+    
+    public SparseVector sum(SparseVector another){
+        SparseVector sumVector = new SparseVector();
+        
+        Iterator<Integer> anotherIterator = another.symbolTable.keys().iterator();
+        Iterator<Integer> thisIterator = this.symbolTable.keys().iterator();
+        
+        while(thisIterator.hasNext() && anotherIterator.hasNext()){
+            
+            Integer thisKey = thisIterator.next();
+            
+            Double thisValue = this.get(thisKey);
+            Double anotherValue = another.get(thisKey);
+            
+            sumVector.put(thisKey, thisValue + anotherValue);
+        }
+        
+        return sumVector;
     }
 
 }
