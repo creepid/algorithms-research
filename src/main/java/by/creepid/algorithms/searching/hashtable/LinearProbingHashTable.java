@@ -70,8 +70,10 @@ public class LinearProbingHashTable<Key, Value> extends AbstractHashTable<Key, V
     }
 
     public boolean contains(Key key) {
-        int i;
-        for (i = hash(key); keys[i] != null; i = (i + 1) % m) {
+        int i = hash(key);
+        int iterations = m;
+        for (i = hash(key); keys[i] != null && iterations > 0; i = (i + 1) % m) {
+            iterations--;
             if (keys[i].equals(key)) {
                 return true;
             }
