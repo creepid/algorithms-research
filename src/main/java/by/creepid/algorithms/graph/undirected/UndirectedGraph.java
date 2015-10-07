@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package by.creepid.algorithms.basic.graph.undirected;
+package by.creepid.algorithms.graph.undirected;
 
 import by.creepid.algorithms.basic.bags.BagSimple;
 import by.creepid.algorithms.utils.DataInput;

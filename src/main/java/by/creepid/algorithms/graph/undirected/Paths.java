@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package by.creepid.algorithms.basic.graph.undirected;
+package by.creepid.algorithms.graph.undirected;
 
 /**
  *
  * @author rusakovich
  */
-public interface Search {
+public interface Paths {
 
-    public boolean marked(int v);
+    public boolean hasPathTo(int v);
 
-    public int count();
+    public Iterable<Integer> pathTo(int v);
 
 }
