@@ -13,10 +13,10 @@ import by.creepid.algorithms.basic.bags.ResizedStack;
  */
 public class DepthPaths implements Paths {
 
-    private boolean[] marked;
-    private int[] edgeTo;
-    private final int start;
-
+    boolean[] marked;
+    int[] edgeTo;
+    int start;
+    
     public DepthPaths(Graph g, int start) {
         this.marked = new boolean[g.vertexCount()];
         this.edgeTo = new int[g.vertexCount()];
@@ -24,7 +24,7 @@ public class DepthPaths implements Paths {
         crawl(g, start);
     }
 
-    private void crawl(Graph g, int v) {
+    void crawl(Graph g, int v) {
         this.marked[v] = true;
         for (int w : g.adjacentVertices(v)) {
             if (!marked[w]) {
