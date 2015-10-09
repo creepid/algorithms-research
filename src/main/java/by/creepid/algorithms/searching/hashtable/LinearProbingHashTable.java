@@ -47,6 +47,8 @@ public class LinearProbingHashTable<Key, Value> extends AbstractHashTable<Key, V
 
         this.keys = keysTemp;
         this.vals = valsTemp;
+
+        this.m = newCapacity;
     }
 
     @Override
