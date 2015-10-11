@@ -13,10 +13,12 @@ public interface Graph {
 
     public int vertexCount();
 
+    public Iterable<Integer> vertices();
+
     public int edgeCount();
 
     public void addEdge(int v, int w);
 
     public Iterable<Integer> adjacentVertices(int v);
-
+    
 }

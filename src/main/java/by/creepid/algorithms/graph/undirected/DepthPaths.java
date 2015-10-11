@@ -17,6 +17,9 @@ public class DepthPaths implements Paths {
     int[] edgeTo;
     int start;
     
+    public DepthPaths(){
+    }
+    
     public DepthPaths(Graph g, int start) {
         this.marked = new boolean[g.vertexCount()];
         this.edgeTo = new int[g.vertexCount()];
