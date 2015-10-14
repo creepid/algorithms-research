@@ -7,6 +7,7 @@ package by.creepid.algorithms.graph.directed;
 
 import by.creepid.algorithms.basic.bags.BagSimple;
 import by.creepid.algorithms.utils.DataInput;
+import java.util.Arrays;
 import java.util.Iterator;
 
 /**
@@ -77,6 +78,17 @@ public class DigraphImpl implements Digraph {
             }
 
         };
+    }
+
+    @Override
+    public Iterable<Integer> vertices() {
+        Integer[] verts = new Integer[vertexes];
+
+        for (int v = 0; v < this.vertexes; v++) {
+            verts[v] = v;
+        }
+
+        return Arrays.asList(verts);
     }
 
 }
