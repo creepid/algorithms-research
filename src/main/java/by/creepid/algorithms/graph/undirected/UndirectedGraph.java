@@ -7,6 +7,7 @@ package by.creepid.algorithms.graph.undirected;
 
 import by.creepid.algorithms.basic.bags.BagSimple;
 import by.creepid.algorithms.utils.DataInput;
+import java.util.Arrays;
 
 /**
  *
@@ -49,4 +50,14 @@ public class UndirectedGraph extends AbstractGraph {
         return this.adj[v];
     }
 
+    @Override
+    public Iterable<Integer> vertices() {
+        Integer[] verts = new Integer[vertices];
+        
+        for (int v = 0; v < this.vertices; v++) {
+            verts[v] = v;
+        }
+        
+        return Arrays.asList(verts);
+    }
 }

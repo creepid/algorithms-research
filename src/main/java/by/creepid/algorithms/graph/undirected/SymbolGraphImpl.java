@@ -89,4 +89,8 @@ public class SymbolGraphImpl implements SymbolGraph {
         return g.adjacentVertices(v);
     }
 
+    @Override
+    public Iterable<Integer> vertices() {
+        return g.vertices();
+    }
 }
