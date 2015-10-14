@@ -27,7 +27,7 @@ public class ConnectedComponentsDepthSearch extends DepthSearch implements Conne
     }
 
     @Override
-    void crawl(Graph g, int v) {
+    protected void crawl(Graph g, int v) {
         this.component[v] = count;
         super.crawl(g, v);
     }

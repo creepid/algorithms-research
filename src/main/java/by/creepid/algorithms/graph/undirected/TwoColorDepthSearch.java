@@ -26,7 +26,7 @@ public class TwoColorDepthSearch extends DepthSearch implements TwoColorSearch {
     }
 
     @Override
-    void crawl(Graph g, int v) {
+    protected void crawl(Graph g, int v) {
         this.marked[v] = true;
 
         for (int w : g.adjacentVertices(v)) {

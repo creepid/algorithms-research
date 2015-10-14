@@ -11,8 +11,8 @@ package by.creepid.algorithms.graph.undirected;
  */
 public class DepthSearch implements Search {
 
-    boolean[] marked;
-    int count;
+    protected boolean[] marked;
+    protected int count;
 
     public DepthSearch() {
     }
@@ -22,7 +22,7 @@ public class DepthSearch implements Search {
         crawl(g, start);
     }
 
-    void crawl(Graph g, int start) {
+    protected void crawl(Graph g, int start) {
         this.marked[start] = true;
         count++;
 
