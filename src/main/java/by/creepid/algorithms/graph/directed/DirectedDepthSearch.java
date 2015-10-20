@@ -43,7 +43,7 @@ public class DirectedDepthSearch implements Search {
     
     @Override
     public boolean marked(int v) {
-        return this.marked(v);
+        return marked[v];
     }
     
     @Override
