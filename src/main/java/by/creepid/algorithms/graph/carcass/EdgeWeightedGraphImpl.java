@@ -6,6 +6,7 @@
 package by.creepid.algorithms.graph.carcass;
 
 import by.creepid.algorithms.basic.bags.BagSimple;
+import by.creepid.algorithms.utils.DataInput;
 
 /**
  *
@@ -25,6 +26,22 @@ public class EdgeWeightedGraphImpl implements EdgeWeightedGraph {
         for (int v = 0; v < this.vertexes; v++) {
             this.adjEdges[v] = new BagSimple<Edge>();
         }
+    }
+
+    public EdgeWeightedGraphImpl(DataInput in) {
+        this(in.readInt());
+
+        int edges = in.readInt();
+
+        for (int i = 0; i < edges; i++) {
+            int v = in.readInt();
+            int w = in.readInt();
+            double weight = in.readDouble();
+            
+            Edge edge = new EdgeImpl(v, w, weight);
+            addEdge(edge);
+        }
+
     }
 
     @Override
