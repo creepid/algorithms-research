@@ -134,7 +134,7 @@ public class BinaryHeap<Key extends Comparable<Key>> implements PriorityQueue<Ke
             exch(1, n--);
             sink(1);
         }
-        
+
         return Arrays.copyOfRange(keys, 1, keys.length);
     }
 }
