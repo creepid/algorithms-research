@@ -15,6 +15,7 @@ import by.creepid.algorithms.sorting.priority.MinPriorityQueue;
 public class LazyPrimMST implements MST {
 
     private boolean[] marked;
+    private double weight;
     private LinkedListQueue<Edge> mst;
     private MinPriorityQueue<Edge> pq;
 
@@ -34,6 +35,7 @@ public class LazyPrimMST implements MST {
             }
 
             mst.enqueue(minWeightEdge);
+            weight += minWeightEdge.weight();
 
             if (!marked[v]) {
                 visit(g, v);
@@ -59,7 +61,7 @@ public class LazyPrimMST implements MST {
 
     @Override
     public double weight() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.weight;
     }
 
 }

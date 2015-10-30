@@ -6,7 +6,6 @@
 package by.creepid.algorithms.graph.carcass;
 
 import by.creepid.algorithms.basic.bags.LinkedListQueue;
-import by.creepid.algorithms.basic.bags.Queue;
 import by.creepid.algorithms.basic.uf.UnionFinding;
 import by.creepid.algorithms.basic.uf.UnionFindingFastSearch;
 import by.creepid.algorithms.sorting.priority.MinPriorityQueue;
@@ -18,9 +17,11 @@ import by.creepid.algorithms.sorting.priority.MinPriorityQueue;
 public class KruskalMST implements MST {
 
     private final LinkedListQueue<Edge> mst;
+    private double weight;
 
     public KruskalMST(EdgeWeightedGraph g) {
         this.mst = new LinkedListQueue<>();
+        this.weight = 0;
 
         MinPriorityQueue<Edge> pq = new MinPriorityQueue<>(g.edgeCount());
         for (Edge e : g.allEdges()) {
@@ -40,6 +41,7 @@ public class KruskalMST implements MST {
 
             uf.union(v, w);
             mst.enqueue(e);
+            weight += e.weight();
         }
     }
 
@@ -50,7 +52,7 @@ public class KruskalMST implements MST {
 
     @Override
     public double weight() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.weight;
     }
 
 }

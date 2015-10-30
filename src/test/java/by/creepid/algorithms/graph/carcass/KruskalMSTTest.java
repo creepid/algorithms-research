@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package by.creepid.algorithms.graph.carcass;
 
 import by.creepid.algorithms.utils.DataInput;
@@ -20,10 +19,10 @@ import static org.junit.Assert.*;
  * @author rusakovich
  */
 public class KruskalMSTTest {
-    
+
     public KruskalMSTTest() {
     }
-    
+
     private EdgeWeightedGraph g;
 
     @Before
@@ -65,5 +64,17 @@ public class KruskalMSTTest {
 
         assertArrayEquals(expected, actualList.toArray());
     }
-    
+
+    /**
+     * Test of weight method, of class EagerPrimMST.
+     */
+    @Test
+    public void testWeight() {
+        System.out.println("***** weight *****");
+        KruskalMST instance = new KruskalMST(g);
+        double expResult = 1.81;
+        double result = instance.weight();
+        assertEquals(expResult, result, 0.00001);
+    }
+
 }

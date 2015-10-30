@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import org.junit.After;
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -62,6 +63,18 @@ public class EagerPrimMSTTest {
         }
 
         assertArrayEquals(expected, actualList.toArray());
+    }
+
+    /**
+     * Test of weight method, of class EagerPrimMST.
+     */
+    @Test
+    public void testWeight() {
+        System.out.println("***** weight *****");
+        EagerPrimMST instance = new EagerPrimMST(g);
+        double expResult = 1.81;
+        double result = instance.weight();
+        assertEquals(expResult, result, 0.00001);
     }
 
 }

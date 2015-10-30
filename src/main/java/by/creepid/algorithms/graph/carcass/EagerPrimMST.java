@@ -73,7 +73,17 @@ public class EagerPrimMST implements MST {
 
     @Override
     public double weight() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        double weight = 0;
+        
+        for (int i = 0; i < edgeTo.length; i++) {
+            Edge edge = edgeTo[i];
+
+            if (edge != null) {
+                weight += edge.weight();
+            }
+        }
+
+        return weight;
     }
 
 }
