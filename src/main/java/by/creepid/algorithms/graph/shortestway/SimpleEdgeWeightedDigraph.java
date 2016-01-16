@@ -46,7 +46,7 @@ public class SimpleEdgeWeightedDigraph implements EdgeWeightedDigraph {
     }
 
     @Override
-    public int vertices() {
+    public int vertexes() {
         return v;
     }
 

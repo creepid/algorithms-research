@@ -11,7 +11,7 @@ package by.creepid.algorithms.graph.shortestway;
  */
 public interface EdgeWeightedDigraph {
 
-    public int vertices();
+    public int vertexes();
 
     public int edgeCount();
 

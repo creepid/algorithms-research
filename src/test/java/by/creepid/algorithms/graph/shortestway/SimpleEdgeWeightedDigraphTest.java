@@ -44,7 +44,7 @@ public class SimpleEdgeWeightedDigraphTest {
     public void testVertexCount() {
         System.out.println("*** vertices ****");
         int expResult = 8;
-        int result = g.vertices();
+        int result = g.vertexes();
         assertEquals(expResult, result);
     }
 
