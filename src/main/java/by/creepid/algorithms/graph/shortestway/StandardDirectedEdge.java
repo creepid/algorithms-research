@@ -37,7 +37,7 @@ public class StandardDirectedEdge implements DirectedEdge {
         return this.w;
     }
 
-    public String toStirng() {
+    public String toString() {
         return String.format("%d->%d %.2f", v, w, weight);
     }
 
