@@ -26,3 +26,20 @@ Practice based on [book](http://algs4.cs.princeton.edu/home/)
 [Union-finding fast union](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/basic/uf/UnionFindingFastUnion.java)<br/>
 [Union-finding weighted](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/basic/uf/UnionFindingWeighted.java)<br/>
 [Union-finding with weighted wrapped path](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/basic/uf/UnionFindingWeightedWrappedPath.java)<br/>
+
+## Sorting ##
+[Insertion sorting](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/sorting/InsertionSorting.java)<br/>
+[Insertion sorting with marker (first min element)](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/sorting/InsertionSantinelSorting.java)<br/>
+[Simple selection sorting](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/sorting/SelectionSorting.java)<br/>
+[Shell sorting](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/sorting/ShellSorting.java)<br/>
+[Shell sorting step storage approach](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/sorting/ShellStepStorageSorting.java)<br/>
+[Merge sorting](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/sorting/merging/MergeSorting.java)<br/>
+[Bottom up merge sorting](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/sorting/merging/BottomUpMergeSorting.java)<br/>
+[Merge half reverse sorting](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/sorting/merging/MergeHalfReverseSorting.java)<br/>
+[Merge sorting advance](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/sorting/merging/MergeSortingAdvance.java)<br/>
+[Merge sorting without sync](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/sorting/merging/MergeSortingWithoutSync.java)<br/>
+[Quick sorting](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/sorting/fast/QuickSorting.java)<br/>
+[Quick with insertion sorting](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/sorting/fast/QuickWithInsertionSorting.java)<br/>
+[Quick sorting with signal keys](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/sorting/fast/QuickSortingSignalKeys.java)<br/>
+[Quick 3-Way sorting](https://github.com/creepid/algorithms-research/blob/master/src/main/java/by/creepid/algorithms/sorting/fast/Quick3WaySorting.java)<br/>
+
