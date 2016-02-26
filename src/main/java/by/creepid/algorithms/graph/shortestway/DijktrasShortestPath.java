@@ -31,7 +31,8 @@ public class DijktrasShortestPath extends ShortestPathBase {
 
     }
 
-    private void relax(EdgeWeightedDigraph g, int v) {
+    @Override
+    protected void relax(EdgeWeightedDigraph g, int v) {
         for (DirectedEdge e : g.adjacent(v)) {
             int w = e.to();
 

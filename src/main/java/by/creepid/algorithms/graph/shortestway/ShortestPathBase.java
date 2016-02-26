@@ -6,7 +6,6 @@ package by.creepid.algorithms.graph.shortestway;
 
 import by.creepid.algorithms.basic.bags.ResizedStack;
 
-
 /**
  *
  * @author mirash
@@ -36,7 +35,17 @@ public abstract class ShortestPathBase implements ShortestPath {
         for (DirectedEdge e = edgeTo[v]; e != null; e = edgeTo[e.from()]) {
             path.push(e);
         }
-        
+
         return path;
+    }
+
+    protected void relax(EdgeWeightedDigraph g, int v) {
+        for (DirectedEdge e : g.adjacent(v)) {
+            int w = e.to();
+            if (distTo[w] > distTo[v] + e.weight()) {
+                distTo[w] = distTo[v] + e.weight();
+                edgeTo[w] = e;
+            }
+        }
     }
 }
